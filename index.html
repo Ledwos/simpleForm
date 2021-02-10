@@ -10,62 +10,98 @@
 
 <body>
     <h1>Simple HTML 5 Form</h1>
-    <p id="description">
-        Thank you for taking the time to help us improve the platform
-    </p>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
     <form id="simple-html-form">
-        <label for="name"  id="name-label">Name</label>
-        <input type="text" id="name" placeholder="Name" required>
-        <label for="email" id="email-label">Email</label>
-        <input type="text" id="email" placeholder="Email"
-            pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" required>
-        <label for="number" id="number-label">Age (optional)</label>
-        <input type="text" id="number" pattern="[0-9]{1,3}" required placeholder="Age">
-        <input type="number" id="number2" min="0" max="100" required placeholder="Age">
-        <!-- ^ Normally would've used type 'number' which would eliminate -->
-        <!--   this error all together, but you wanted the error :) -->
-        <div id="radio field">
-            <div class="radio-element">
-                <input type="radio" id="" name="radio-group" value=""
-                       checked>
-                <label for="">r1</label>
-            </div>
-            <div class="radio-element">
-                <input type="radio" id="" name="radio-group" value=""
-                       checked>
-                <label for="">r1</label>
-            </div>
-            <div class="radio-element">
-                <input type="radio" id="" name="radio-group" value=""
-                       checked>
-                <label for="">r1</label>
-            </div>
-            <div class="radio-element">
-                <input type="radio" id="" name="radio-group" value=""
-                       checked>
-                <label for="">r1</label>
+        <div class="form-item">
+            <label for="name"  id="name-label">Name</label>
+            <input type="text" id="name" placeholder="Name" 
+                required oninvalid="this.setCustomValidity('Please enter a Name')"
+                oninput="this.setCustomValidity('')"
+            >
+        </div>
+        <div class="form-item">
+            <label for="email" id="email-label">Email</label>
+            <input type="text" id="email" placeholder="Email"
+                pattern="[a-zA-Z0-9!#$%&amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
+                required
+                oninvalid="this.setCustomValidity('Please match email format e.g. name@email.com')"
+                oninput="this.setCustomValidity('')"
+            >
+        </div>
+        <div class="form-item">
+            <label for="number" id="number-label">Age (optional, type 'text' for input error)</label>
+            <input type="text" id="number" pattern="[0-9]{1,3}" placeholder="Age">
+        </div>
+        <div class="form-item">
+            <label for="number2" id="number2-label">Age again (optional, type 'number' for min max error)</label>
+            <input type="number" id="number2" min="0" max="100" placeholder="Age">
+        </div>
+        <div class="form-item">
+            <label for="radio-field">
+                Would you recommend this website to a friend?
+            </label>
+            <div id="radio-field">
+                <div class="radio-element">
+                    <input type="radio" id="radio-definitely" name="radio-group" value="Definitely">
+                    <label for="radio-rdefinitely">Definitely</label>
+                </div>
+                <div class="radio-element">
+                    <input type="radio" id="radio-maybe" name="radio-group" value="Maybe">
+                    <label for="radio-maybe">Maybe</label>
+                </div>
+                <div class="radio-element">
+                    <input type="radio" id="radio-not-sure" name="radio-group" value="Not sure">
+                    <label for="radio-not-sure">Not sure</label>
+                </div>
             </div>
         </div>
-        <div id="checkbox-field">
-            <div class="checkbox-element">
-                <input type="checkbox" id="scales" name="scales">
-                <label for="scales">Scales</label>
-            </div>
-            <div class="checkbox-element">
-                <input type="checkbox" id="scales" name="scales">
-                <label for="scales">Scales</label>
-            </div>
-            <div class="checkbox-element">
-                <input type="checkbox" id="scales" name="scales">
-                <label for="scales">Scales</label>
-            </div>
-            <div class="checkbox-element">
-                <input type="checkbox" id="scales" name="scales">
-                <label for="scales">Scales</label>
+        <div class="form-item">
+            <label for="select-tech">What is your favorite technology in web development?</label>
+            <select name="select-tech" id="select-tech">
+                <option value="" disabled selected>Select an option</option>
+                <option value="React">React</option>
+                <option value="Angular">Angular</option>
+                <option value="Vue">Vue</option>
+                <option value="Django">Django</option>
+                <option value="Flask">Flask</option>
+            </select>
+        </div>
+        <div class="form-item">
+            <label for="checkbox-field">
+                What would be your primary skills? (Check all that apply)
+            </label>
+            <div id="checkbox-field">
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-react" name="React">
+                    <label for="check-react">React</label>
+                </div>
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-angular" name="Angular">
+                    <label for="check-angular">Angular</label>
+                </div>
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-ember" name="EmberJS">
+                    <label for="check-ember">Ember JS</label>
+                </div>
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-node" name="Node">
+                    <label for="check-node">Node</label>
+                </div>
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-mongo" name="MongoDB">
+                    <label for="check-mongo">Mongo DB</label>
+                </div>
+                <div class="checkbox-element">
+                    <input type="checkbox" id="check-html" name="HTML">
+                    <label for="check-html">HTML</label>
+                </div>
             </div>
         </div>
-        <textarea id="form-textarea" placeholder="Enter your comments here"></textarea>
-        <button type="submit">Submit</button>
+        <label for="form-textarea">
+            Any comments or suggestions?
+        </label>
+        <textarea id="form-textarea" class="form-item" placeholder="Enter your comments here..."></textarea>
+        <button id="btn-submit" type="submit">Submit</button>
     </form>
 </body>
 

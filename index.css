@@ -1,3 +1,52 @@
 body {
-    background-color: aqua;
+    background-color: rgb(44, 126, 44);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(218, 230, 217);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#description {
+    font-style: italic;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: rgb(1, 10, 1);  
+    padding: 24px;
+    border-radius: 2px;
+}
+
+input, textarea, #select-tech, #btn-submit {
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+.form-item {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+#btn-submit {
+    background-color: rgb(44, 126, 44);
+    color: rgb(218, 230, 217);
+    border: 0;
+    border-radius: 2px;
+}
+
+.checkbox-element, .radio-element {
+    margin-bottom: 5px;
 }
